@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.project_oop_java.controller.ControllerRegistro">
+   <children>
+      <AnchorPane prefHeight="550.0" prefWidth="600.0" style="-fx-background-color: #2A4759;">
+         <children>
+            <Button layoutX="199.0" layoutY="480.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="49.0" prefWidth="204.0" style="-fx-background-color: #f79b72; -fx-padding: 15px; -fx-font-size: 15px; -fx-font-family: Inter;" text="Cadastrar" />
+            <ImageView fitHeight="117.0" fitWidth="150.0" layoutX="244.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Imagens/imagens_projeto/book_3145765.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="233.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar">
+               <font>
+                  <Font name="Inter Regular" size="30.0" />
+               </font>
+            </Text>
+            <TextField fx:id="campoEmailRegistro" layoutX="101.0" layoutY="261.0" prefHeight="36.0" prefWidth="400.0" promptText="Digite seu email">
+               <font>
+                  <Font name="Inter Regular" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="campoConfiEmailRegistro" layoutX="101.0" layoutY="323.0" prefHeight="36.0" prefWidth="400.0" promptText="Digite seu email novamente">
+               <font>
+                  <Font name="Inter Regular" size="18.0" />
+               </font>
+            </TextField>
+            <Text layoutX="189.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Já Possui Cadastro?">
+               <font>
+                  <Font name="Inter Regular" size="15.0" />
+               </font>
+            </Text>
+            <Hyperlink layoutX="331.0" layoutY="537.0" onAction="#redirecionarLogin" text="Faça login">
+               <font>
+                  <Font name="Inter Regular" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Text layoutX="112.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+               <font>
+                  <Font name="Inter Regular" size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="111.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar Email">
+               <font>
+                  <Font name="Inter Regular" size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="112.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha">
+               <font>
+                  <Font name="Inter Regular" size="15.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="campoBoxRegistro" layoutX="100.0" layoutY="434.0" prefHeight="36.0" prefWidth="400.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Professor" />
+                     <String fx:value="Aluno" />
+                     <String fx:value="Outros" />
+                  </FXCollections>
+               </items>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ChoiceBox>
+            <PasswordField fx:id="campoSenhaRegistro" layoutX="101.0" layoutY="378.0" prefHeight="36.0" prefWidth="400.0" promptText="Digite sua senha">
+               <font>
+                  <Font name="Inter Regular" size="18.0" />
+               </font>
+            </PasswordField>
+            <Text layoutX="112.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escolha seu perfil">
+               <font>
+                  <Font name="Inter Regular" size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="labelTestResg" layoutX="112.0" layoutY="168.0" text="Label" textFill="RED" visible="false" />
+            <TextField fx:id="campoNomeRegistro" layoutX="100.0" layoutY="203.0" prefHeight="36.0" prefWidth="400.0" promptText="Digite seu nome">
+               <font>
+                  <Font name="Inter Regular" size="18.0" />
+               </font>
+            </TextField>
+            <Text layoutX="112.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome">
+               <font>
+                  <Font name="Inter Regular" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
