@@ -82,7 +82,7 @@
       </VBox>
       <Pane prefHeight="1024.0" prefWidth="1096.0" style="-fx-background-color: #EEEEEE;">
          <children>
-            <Pane layoutX="63.0" layoutY="108.0" prefHeight="107.0" prefWidth="911.0">
+            <Pane layoutX="63.0" layoutY="108.0" prefHeight="107.0" prefWidth="939.0">
                <children>
                   <CheckBox layoutX="141.0" layoutY="45.0" mnemonicParsing="false" text="Português" />
                   <CheckBox layoutX="229.0" layoutY="45.0" mnemonicParsing="false" text="Matemática" />
@@ -105,106 +105,7 @@
             </Text>
             <ScrollPane layoutX="92.0" layoutY="223.0" prefHeight="798.0" prefWidth="954.0">
                <content>
-                  <VBox alignment="CENTER" prefHeight="1062.0" prefWidth="949.0">
-                     <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F79B72; -fx-padding: 20px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-background-radius: 10px;">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado da Questão" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Pontos" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo da questão" />
-                              <VBox prefHeight="102.0" prefWidth="871.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" text="Altenativa A" />
-                                    <CheckBox layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Altenativa B" />
-                                    <CheckBox layoutX="10.0" layoutY="27.0" mnemonicParsing="false" text="Altenativa C" />
-                                    <CheckBox layoutX="10.0" layoutY="44.0" mnemonicParsing="false" text="Altenativa D" />
-                                    <CheckBox layoutX="10.0" layoutY="61.0" mnemonicParsing="false" text="Altenativa E" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F79B72; -fx-padding: 20px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-background-radius: 10px;">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado da Questão" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Pontos" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo da questão" />
-                              <VBox prefHeight="102.0" prefWidth="871.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" text="Altenativa A" />
-                                    <CheckBox layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Altenativa B" />
-                                    <CheckBox layoutX="10.0" layoutY="27.0" mnemonicParsing="false" text="Altenativa C" />
-                                    <CheckBox layoutX="10.0" layoutY="44.0" mnemonicParsing="false" text="Altenativa D" />
-                                    <CheckBox layoutX="10.0" layoutY="61.0" mnemonicParsing="false" text="Altenativa E" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox layoutX="10.0" layoutY="210.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F79B72; -fx-padding: 20px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-background-radius: 10px;">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado da Questão" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Pontos" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo da questão" />
-                              <VBox prefHeight="102.0" prefWidth="871.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" text="Altenativa A" />
-                                    <CheckBox layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Altenativa B" />
-                                    <CheckBox layoutX="10.0" layoutY="27.0" mnemonicParsing="false" text="Altenativa C" />
-                                    <CheckBox layoutX="10.0" layoutY="44.0" mnemonicParsing="false" text="Altenativa D" />
-                                    <CheckBox layoutX="10.0" layoutY="61.0" mnemonicParsing="false" text="Altenativa E" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox layoutX="10.0" layoutY="410.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F79B72; -fx-padding: 20px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-background-radius: 10px;">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado da Questão" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Pontos" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo da questão" />
-                              <VBox prefHeight="102.0" prefWidth="871.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" text="Altenativa A" />
-                                    <CheckBox layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Altenativa B" />
-                                    <CheckBox layoutX="10.0" layoutY="27.0" mnemonicParsing="false" text="Altenativa C" />
-                                    <CheckBox layoutX="10.0" layoutY="44.0" mnemonicParsing="false" text="Altenativa D" />
-                                    <CheckBox layoutX="10.0" layoutY="61.0" mnemonicParsing="false" text="Altenativa E" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox layoutX="10.0" layoutY="602.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F79B72; -fx-padding: 20px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-background-radius: 10px;">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado da Questão" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Pontos" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo da questão" />
-                              <VBox prefHeight="102.0" prefWidth="871.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" text="Altenativa A" />
-                                    <CheckBox layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Altenativa B" />
-                                    <CheckBox layoutX="10.0" layoutY="27.0" mnemonicParsing="false" text="Altenativa C" />
-                                    <CheckBox layoutX="10.0" layoutY="44.0" mnemonicParsing="false" text="Altenativa D" />
-                                    <CheckBox layoutX="10.0" layoutY="61.0" mnemonicParsing="false" text="Altenativa E" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                        <VBox layoutX="10.0" layoutY="718.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F79B72; -fx-padding: 20px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-background-radius: 10px;">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado da Questão" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Pontos" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo da questão" />
-                              <VBox prefHeight="102.0" prefWidth="871.0">
-                                 <children>
-                                    <CheckBox mnemonicParsing="false" text="Altenativa A" />
-                                    <CheckBox layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Altenativa B" />
-                                    <CheckBox layoutX="10.0" layoutY="27.0" mnemonicParsing="false" text="Altenativa C" />
-                                    <CheckBox layoutX="10.0" layoutY="44.0" mnemonicParsing="false" text="Altenativa D" />
-                                    <CheckBox layoutX="10.0" layoutY="61.0" mnemonicParsing="false" text="Altenativa E" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </VBox>
+                  <VBox fx:id="painelQuestoes" alignment="TOP_CENTER" prefHeight="800.0" prefWidth="952.0" style="-fx-padding: 20px; -fx-background-color: #F79B72;" />
                </content>
             </ScrollPane>
          </children>

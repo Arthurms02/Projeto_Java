@@ -43,7 +43,7 @@ public class ControllerLogin {
             BancoDeUsuarios b = BancoDeUsuarios.getInstancia();
             Usuario.autenticarUsuario(email,senha);
             System.out.println(Sessao.getIdDoUsuario());
-            System.out.println(b.getBancoDeUsuarios());// ideia para registro
+            System.out.println(b.getBancoDeUsuarios());
 
             Parent root = FXMLLoader.load(getClass().getResource("/com/project/project_oop_java/view/home-view.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
