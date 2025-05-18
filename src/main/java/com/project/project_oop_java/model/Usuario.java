@@ -4,6 +4,7 @@ import com.project.project_oop_java.controller.Sessao;
 import com.project.project_oop_java.exceptions.ExceptionEmailInvalido;
 import com.project.project_oop_java.exceptions.ExceptionEmailJaCadastrado;
 import com.project.project_oop_java.exceptions.ExceptionSenhaInvalida;
+import com.project.project_oop_java.exceptions.ExceptionUsuarioNaoCadastrado;
 
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -69,10 +70,10 @@ public abstract class Usuario {
 
     }
 
-    public static void autenticarUsuario(String email,String senha) throws ExceptionSenhaInvalida, ExceptionEmailInvalido{
+    public static void autenticarUsuario(String email,String senha) throws ExceptionSenhaInvalida, ExceptionEmailInvalido, ExceptionUsuarioNaoCadastrado {
         BancoDeUsuarios b = BancoDeUsuarios.getInstancia();
         if (b.getBancoDeUsuarios().isEmpty()){
-            throw new ExceptionEmailInvalido("Email/Senha não cadastrados!");
+            throw new ExceptionUsuarioNaoCadastrado("Email/Senha não cadastrados!");
         }
         for (Map.Entry<Integer, Usuario> user : b.getBancoDeUsuarios().entrySet()) {
             if (user.getValue().email.equals(email)) {

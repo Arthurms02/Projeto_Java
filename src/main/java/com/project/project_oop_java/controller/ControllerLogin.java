@@ -3,6 +3,7 @@ package com.project.project_oop_java.controller;
 import com.project.project_oop_java.exceptions.ExceptionCampoVazio;
 import com.project.project_oop_java.exceptions.ExceptionEmailInvalido;
 import com.project.project_oop_java.exceptions.ExceptionSenhaInvalida;
+import com.project.project_oop_java.exceptions.ExceptionUsuarioNaoCadastrado;
 import com.project.project_oop_java.model.BancoDeUsuarios;
 import com.project.project_oop_java.model.Usuario;
 import javafx.event.ActionEvent;
@@ -59,6 +60,9 @@ public class ControllerLogin {
             labelTest.setText(e.getMessage());
             labelTest.setVisible(true);
         } catch (ExceptionCampoVazio e){
+            labelTest.setText(e.getMessage());
+            labelTest.setVisible(true);
+        } catch (ExceptionUsuarioNaoCadastrado e){
             labelTest.setText(e.getMessage());
             labelTest.setVisible(true);
         }

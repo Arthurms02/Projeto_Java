@@ -69,10 +69,6 @@ public class ControllerHome implements Initializable {
         stage.show();
     }
 
-    @FXML
-    private void removerCard(){
-        System.out.println("Apagado!");
-    }
 
     @FXML
     private void criarQuestao(ActionEvent event) throws IOException {
@@ -98,9 +94,6 @@ public class ControllerHome implements Initializable {
         stage.show();
     }
 
-    public void setPainelQuestoes(VBox questao) {
-        painelQuestoes.getChildren().add(questao);
-    }
 
     @FXML
     public VBox criarCard(String fonte, String enunciado, String totalPontos, String altA, String altB, String altC, String altD, String altE, String id){

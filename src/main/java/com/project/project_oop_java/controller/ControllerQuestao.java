@@ -1,6 +1,7 @@
 package com.project.project_oop_java.controller;
 
 import com.project.project_oop_java.exceptions.ExceptionCampoVazio;
+import com.project.project_oop_java.exceptions.ExceptionNumeroDePontosNegativos;
 import com.project.project_oop_java.model.BancoDeQuestoes;
 import com.project.project_oop_java.model.Questao;
 import javafx.event.ActionEvent;
@@ -76,6 +77,12 @@ public class ControllerQuestao {
                 throw new ExceptionCampoVazio("Digite a alternativa E da questão ou use NDA");
             }
 
+            // validar pontos
+
+            if(Double.parseDouble(pontos) < 0 ){
+                throw new ExceptionNumeroDePontosNegativos("Não é permitido pontos negativos!");
+            }
+
             // adicionar no banco
             BancoDeQuestoes banco = BancoDeQuestoes.getInstancia();
             System.out.println(banco.getBancoDeQuestoes());
@@ -95,6 +102,9 @@ public class ControllerQuestao {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         } catch (ExceptionCampoVazio e){
+            lbErro.setText(e.getMessage());
+            lbErro.setVisible(true);
+        } catch (ExceptionNumeroDePontosNegativos e){
             lbErro.setText(e.getMessage());
             lbErro.setVisible(true);
         }
