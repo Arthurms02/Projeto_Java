@@ -86,7 +86,8 @@ public class ControllerQuestao {
             // adicionar no banco
             BancoDeQuestoes banco = BancoDeQuestoes.getInstancia();
             System.out.println(banco.getBancoDeQuestoes());
-            Questao questao = new Questao(fonte, enun, pontos, a, b, c, d, e);
+            String idDoCriador = String.valueOf(Sessao.getIdDoUsuario());
+            Questao questao = new Questao(idDoCriador, fonte, enun, pontos, a, b, c, d, e);
             banco.cadastrarQuestoes(questao);
 
 
@@ -98,7 +99,8 @@ public class ControllerQuestao {
 
 
         } catch (NumberFormatException ex) {
-            throw new RuntimeException(ex);
+            lbErro.setText("Total de pontos inválido! Digite um número válido.");
+            lbErro.setVisible(true);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         } catch (ExceptionCampoVazio e){

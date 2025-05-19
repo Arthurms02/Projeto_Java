@@ -1,6 +1,7 @@
 package com.project.project_oop_java.model;
 
 public class Questao {
+    private String idDoCriador;
     private String fonte;
     private String enunciado;
     private String totalDePontos;
@@ -10,7 +11,8 @@ public class Questao {
     private String alternativaD;
     private String alternativaE;
 
-    public Questao(String fonte, String enunciado, String totalDePontos, String alternativaA, String alternativaB, String alternativaC, String alternativaD, String alternativaE) {
+    public Questao(String idDoCriador ,String fonte, String enunciado, String totalDePontos, String alternativaA, String alternativaB, String alternativaC, String alternativaD, String alternativaE) {
+        this.idDoCriador = idDoCriador;
         this.fonte = fonte;
         this.enunciado = enunciado;
         this.totalDePontos = totalDePontos;
@@ -19,6 +21,14 @@ public class Questao {
         this.alternativaC = alternativaC;
         this.alternativaD = alternativaD;
         this.alternativaE = alternativaE;
+    }
+
+    public String getIdDoCriador() {
+        return idDoCriador;
+    }
+
+    public void setIdDoCriador(String idDoCriador) {
+        this.idDoCriador = idDoCriador;
     }
 
     public String getFonte() {

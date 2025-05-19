@@ -44,7 +44,8 @@ public class ControllerHome implements Initializable {
                     questao.getValue().getAlternativaC(),
                     questao.getValue().getAlternativaD(),
                     questao.getValue().getAlternativaE(),
-                    String.valueOf(questao.getKey())
+                    String.valueOf(questao.getKey()),
+                    questao.getValue().getIdDoCriador()
             ));
         }
     }
@@ -96,11 +97,12 @@ public class ControllerHome implements Initializable {
 
 
     @FXML
-    public VBox criarCard(String fonte, String enunciado, String totalPontos, String altA, String altB, String altC, String altD, String altE, String id){
+    public VBox criarCard(String fonte, String enunciado, String totalPontos, String altA, String altB, String altC, String altD, String altE, String id, String idDoUsuario){
 
         VBox cardVBox = new VBox();
         cardVBox.setPrefSize(912, 250);
         cardVBox.setStyle("-fx-background-color: #DDDDDD; -fx-padding: 20px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-background-radius: 10px;");
+        cardVBox.setId(idDoUsuario);
 
         // Topo - Enunciado, Criador, TotalPontos
         AnchorPane headerPane = new AnchorPane();
@@ -162,9 +164,13 @@ public class ControllerHome implements Initializable {
         btnEditar.setLayoutX(176);
         btnEditar.setLayoutY(7);
 
-        botoesPane.getChildren().addAll(btnResponder, btnRemover, btnEditar);
 
-        cardVBox.setId(id);
+        if(idDoUsuario.equals(String.valueOf(Sessao.getIdDoUsuario()))){
+            botoesPane.getChildren().addAll(btnResponder, btnRemover, btnEditar);
+        }else{
+            botoesPane.getChildren().add(btnResponder);
+        }
+
 
         // Adicionando tudo ao VBox principal
         cardVBox.getChildren().addAll(headerPane, alternativasBox, botoesPane);
