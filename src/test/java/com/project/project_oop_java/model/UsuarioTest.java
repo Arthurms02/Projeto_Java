@@ -3,10 +3,7 @@ package com.project.project_oop_java.model;
 import com.project.project_oop_java.exceptions.ExceptionEmailInvalido;
 import com.project.project_oop_java.exceptions.ExceptionEmailJaCadastrado;
 import com.project.project_oop_java.exceptions.ExceptionSenhaInvalida;
-import com.project.project_oop_java.exceptions.ExceptionUsuarioNaoCadastrado;
 import org.junit.jupiter.api.Test;
-
-import java.lang.reflect.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -70,13 +67,13 @@ class UsuarioTest {
     }
 
     @Test
-    void testeAutenticarUsuarioNaoCadastrado() throws ExceptionUsuarioNaoCadastrado {
+    void testeAutenticarUsuarioNaoCadastrado() throws ExceptionEmailInvalido {
         Aluno usuario = new Aluno("Arthur", "Arthur@test.com", "1234", TipoDeUsuario.ALUNO);
 
         BancoDeUsuarios banco = BancoDeUsuarios.getInstancia();
 
-        assertThrows(ExceptionUsuarioNaoCadastrado.class,()->{
-            Usuario.autenticarUsuario("Arthur@test.com", "1234");
+        assertThrows(ExceptionEmailInvalido.class,()->{
+            Usuario.autenticarUsuario("Arthur@gmail.com", "4141");
         });
 
     }
