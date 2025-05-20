@@ -10,8 +10,9 @@ public class Questao {
     private String alternativaC;
     private String alternativaD;
     private String alternativaE;
+    private String respostaCorreta;
 
-    public Questao(String idDoCriador ,String fonte, String enunciado, String totalDePontos, String alternativaA, String alternativaB, String alternativaC, String alternativaD, String alternativaE) {
+    public Questao(String idDoCriador ,String fonte, String enunciado, String totalDePontos, String alternativaA, String alternativaB, String alternativaC, String alternativaD, String alternativaE, String respostaCorreta) {
         this.idDoCriador = idDoCriador;
         this.fonte = fonte;
         this.enunciado = enunciado;
@@ -21,6 +22,7 @@ public class Questao {
         this.alternativaC = alternativaC;
         this.alternativaD = alternativaD;
         this.alternativaE = alternativaE;
+        this.respostaCorreta = respostaCorreta;
     }
 
     public String getIdDoCriador() {

@@ -133,6 +133,11 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
+                              <TextField fx:id="respostaCorreta" layoutX="100.0" layoutY="28.0" prefHeight="25.0" prefWidth="47.0" promptText="ex.: C" />
+                              <Text layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resposta:">
+                                 <font>
+                                    <Font name="Inter Regular" size="18.0" />
+                                 </font></Text>
                            </children>
                         </AnchorPane>
                      </children>

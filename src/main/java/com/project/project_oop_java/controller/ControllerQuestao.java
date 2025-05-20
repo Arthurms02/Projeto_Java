@@ -2,6 +2,7 @@ package com.project.project_oop_java.controller;
 
 import com.project.project_oop_java.exceptions.ExceptionCampoVazio;
 import com.project.project_oop_java.exceptions.ExceptionNumeroDePontosNegativos;
+import com.project.project_oop_java.exceptions.ExceptionRespostaInvalida;
 import com.project.project_oop_java.model.BancoDeQuestoes;
 import com.project.project_oop_java.model.Questao;
 import javafx.event.ActionEvent;
@@ -36,6 +37,8 @@ public class ControllerQuestao {
     @FXML
     private TextField alternativaE;
     @FXML
+    private TextField respostaCorreta;
+    @FXML
     private Label lbErro;
 
     @FXML
@@ -49,6 +52,7 @@ public class ControllerQuestao {
             String c = alternativaC.getText();
             String d = alternativaD.getText();
             String e = alternativaE.getText();
+            String respCorreta = respostaCorreta.getText();
 
             // Validar campos nulos e vazios.
 
@@ -76,6 +80,24 @@ public class ControllerQuestao {
             if (e == null || e.isBlank()){
                 throw new ExceptionCampoVazio("Digite a alternativa E da questão ou use NDA");
             }
+            if (respCorreta == null || respCorreta.isBlank()){
+                throw new ExceptionCampoVazio("Digite a resposta para essa questão");
+            }
+
+            // validar campo da resposta
+            String[] alternativasValidas = {"A","B","C","D","E"};
+            boolean encontrado = false;
+
+            for (String alterntiva : alternativasValidas){
+                if (respCorreta.equalsIgnoreCase(alterntiva)){
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            if(!encontrado){
+                throw new ExceptionRespostaInvalida("Resposta invalida tente: A | B | C | D | E");
+            }
 
             // validar pontos
 
@@ -87,7 +109,7 @@ public class ControllerQuestao {
             BancoDeQuestoes banco = BancoDeQuestoes.getInstancia();
             System.out.println(banco.getBancoDeQuestoes());
             String idDoCriador = String.valueOf(Sessao.getIdDoUsuario());
-            Questao questao = new Questao(idDoCriador, fonte, enun, pontos, a, b, c, d, e);
+            Questao questao = new Questao(idDoCriador, fonte, enun, pontos, a, b, c, d, e,respCorreta);
             banco.cadastrarQuestoes(questao);
 
 
@@ -107,6 +129,9 @@ public class ControllerQuestao {
             lbErro.setText(e.getMessage());
             lbErro.setVisible(true);
         } catch (ExceptionNumeroDePontosNegativos e){
+            lbErro.setText(e.getMessage());
+            lbErro.setVisible(true);
+        } catch (ExceptionRespostaInvalida e){
             lbErro.setText(e.getMessage());
             lbErro.setVisible(true);
         }
