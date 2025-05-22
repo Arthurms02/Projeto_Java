@@ -25,6 +25,10 @@ public class Questao {
         this.respostaCorreta = respostaCorreta;
     }
 
+    public String getRespostaCorreta() {
+        return respostaCorreta;
+    }
+
     public String getIdDoCriador() {
         return idDoCriador;
     }

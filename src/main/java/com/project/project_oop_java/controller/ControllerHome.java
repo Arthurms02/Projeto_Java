@@ -163,6 +163,31 @@ public class ControllerHome implements Initializable {
         btnEditar.setTextFill(Color.WHITE);
         btnEditar.setLayoutX(176);
         btnEditar.setLayoutY(7);
+        btnEditar.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/project/project_oop_java/view/editarQuestao-view.fxml"));
+                Parent root = loader.load();
+
+                // Pegando o controller da tela de edição
+                ControllerEditarQuestao controller = loader.getController();
+
+                // Pegando a questão do banco pelo id
+                BancoDeQuestoes banco = BancoDeQuestoes.getInstancia();
+                Questao questao = banco.getBancoDeQuestoes().get(Integer.parseInt(id));
+
+                // Envia a questão para preencher os campos
+                controller.setQuestaoEditada(id,questao);
+
+                // Troca a cena
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
 
 
         if(idDoUsuario.equals(String.valueOf(Sessao.getIdDoUsuario()))){

@@ -18,41 +18,73 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ControllerQuestao {
+public class ControllerEditarQuestao {
 
     @FXML
-    private TextField fonteQuestao;
+    private TextField editarFonte;
     @FXML
-    private TextField totalPontos;
+    private TextField editarTotalPontos;
     @FXML
-    private TextArea enunciadoQuestao;
+    private TextArea editarEnunciado;
     @FXML
-    private TextField alternativaA;
+    private TextField editarAlternativaA;
     @FXML
-    private TextField alternativaB;
+    private TextField editarAlternativaB;
     @FXML
-    private TextField alternativaC;
+    private TextField editarAlternativaC;
     @FXML
-    private TextField alternativaD;
+    private TextField editarAlternativaD;
     @FXML
-    private TextField alternativaE;
+    private TextField editarAlternativaE;
     @FXML
-    private TextField respostaCorreta;
+    private  TextField editarRespostaCorreta;
     @FXML
-    private Label lbErro;
+    private Label lbEditErro;
+
+    private Questao questaoEditada;
+
+    private String idDaQuestao;
+
+
+    public void setQuestaoEditada(String id ,Questao questao) {
+        this.questaoEditada = questao;
+        this.idDaQuestao = id;
+
+
+        editarFonte.setText(questao.getFonte());
+        editarTotalPontos.setText(questao.getTotalDePontos());
+        editarEnunciado.setText(questao.getEnunciado());
+        editarAlternativaA.setText(questao.getAlternativaA());
+        editarAlternativaB.setText(questao.getAlternativaB());
+        editarAlternativaC.setText(questao.getAlternativaC());
+        editarAlternativaD.setText(questao.getAlternativaD());
+        editarAlternativaE.setText(questao.getAlternativaE());
+        editarRespostaCorreta.setText(questao.getRespostaCorreta());
+
+    }
 
     @FXML
-    private void criarQuestao(ActionEvent event) {
+    private void editarQuestao(ActionEvent event){
+
+        questaoEditada.setFonte(editarFonte.getText());
+        questaoEditada.setTotalDePontos(editarTotalPontos.getText());
+        questaoEditada.setEnunciado(editarEnunciado.getText());
+        questaoEditada.setAlternativaA(editarAlternativaA.getText());
+        questaoEditada.setAlternativaB(editarAlternativaB.getText());
+        questaoEditada.setAlternativaC(editarAlternativaC.getText());
+        questaoEditada.setAlternativaD(editarAlternativaD.getText());
+        questaoEditada.setAlternativaE(editarAlternativaE.getText());
         try {
-            String fonte = fonteQuestao.getText();
-            String enun = enunciadoQuestao.getText();
-            String pontos = totalPontos.getText();
-            String a = alternativaA.getText();
-            String b = alternativaB.getText();
-            String c = alternativaC.getText();
-            String d = alternativaD.getText();
-            String e = alternativaE.getText();
-            String respCorreta = respostaCorreta.getText();
+            // campos
+            String fonte = editarFonte.getText();
+            String enun = editarEnunciado.getText();
+            String pontos = editarTotalPontos.getText();
+            String a = editarAlternativaA.getText();
+            String b = editarAlternativaB.getText();
+            String c = editarAlternativaC.getText();
+            String d = editarAlternativaD.getText();
+            String e = editarAlternativaE.getText();
+            String respCorreta = editarRespostaCorreta.getText();
 
             // Validar campos nulos e vazios.
 
@@ -105,44 +137,43 @@ public class ControllerQuestao {
                 throw new ExceptionNumeroDePontosNegativos("Não é permitido pontos negativos!");
             }
 
-            // adicionar no banco
+            // salvar no banco
+
             BancoDeQuestoes banco = BancoDeQuestoes.getInstancia();
-            System.out.println(banco.getBancoDeQuestoes());
-            String idDoCriador = String.valueOf(Sessao.getIdDoUsuario());
-            Questao questao = new Questao(idDoCriador, fonte, enun, pontos, a, b, c, d, e,respCorreta);
-            banco.cadastrarQuestoes(questao);
+            banco.editarQuestao(idDaQuestao,questaoEditada);
 
+            // carrega home
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/project/project_oop_java/view/home-view.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/project/project_oop_java/view/home-view.fxml"));
+                Parent root = loader.load();
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
 
         } catch (NumberFormatException ex) {
-            lbErro.setText("Total de pontos inválido! Digite um número válido.");
-            lbErro.setVisible(true);
+            lbEditErro.setText("Total de pontos inválido! Digite um número válido.");
+            lbEditErro.setVisible(true);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         } catch (ExceptionCampoVazio ex){
-            lbErro.setText(ex.getMessage());
-            lbErro.setVisible(true);
+            lbEditErro.setText(ex.getMessage());
+            lbEditErro.setVisible(true);
         } catch (ExceptionNumeroDePontosNegativos ex){
-            lbErro.setText(ex.getMessage());
-            lbErro.setVisible(true);
-        } catch (ExceptionRespostaInvalida ex){
-            lbErro.setText(ex.getMessage());
-            lbErro.setVisible(true);
+            lbEditErro.setText(ex.getMessage());
+            lbEditErro.setVisible(true);
+        } catch (ExceptionRespostaInvalida ex ){
+            lbEditErro.setText(ex.getMessage());
+            lbEditErro.setVisible(true);
         }
 
     }
 
     @FXML
-    private void voltarQuestao(ActionEvent event) throws IOException {
+    private void voltarHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/project/project_oop_java/view/home-view.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
+
 }
