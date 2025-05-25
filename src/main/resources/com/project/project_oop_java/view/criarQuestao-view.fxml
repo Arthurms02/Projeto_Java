@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.project_oop_java.controller.ControllerQuestao">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.project_oop_java.controller.ControllerQuestao">
    <children>
       <VBox prefHeight="1024.0" prefWidth="246.0">
          <children>
@@ -73,7 +73,7 @@
                               <TextField fx:id="totalPontos" layoutX="774.0" layoutY="21.0" promptText="Exemplo 6.0" />
                            </children>
                         </AnchorPane>
-                        <Text layoutX="10.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado da questão:" wrappingWidth="201.13671875">
+                        <Text layoutX="10.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado da questão:" wrappingWidth="208.13671875">
                            <font>
                               <Font name="Inter Regular" size="18.0" />
                            </font>

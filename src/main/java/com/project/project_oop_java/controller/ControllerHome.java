@@ -142,6 +142,26 @@ public class ControllerHome implements Initializable {
         btnResponder.setTextFill(Color.WHITE);
         btnResponder.setLayoutX(14);
         btnResponder.setLayoutY(7);
+        btnResponder.setOnAction(e -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/project/project_oop_java/view/responderQuestao-view.fxml"));
+                Parent root = loader.load();
+
+                // pega o controller e envia a questão
+                ControllerResponderQuestao controller = loader.getController();
+                BancoDeQuestoes banco = BancoDeQuestoes.getInstancia();
+                Questao questao = banco.getBancoDeQuestoes().get(Integer.parseInt(id));
+                controller.carregarQuestao(questao); // passe o objeto Questao
+
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
 
         Button btnRemover = new Button("Remover");
         btnRemover.setStyle("-fx-background-color: red;");
