@@ -47,7 +47,7 @@ public class ControllerRegistro {
 
             //Validando campos vazios e nulos
 
-            if(nome == null || nome.isBlank()){
+            if (nome == null || nome.isBlank()){
                 throw new ExceptionCampoVazio("Campo vazio preencha todos os campos!");
             }
             if (email == null || email.isBlank()){
@@ -63,19 +63,19 @@ public class ControllerRegistro {
                 throw new ExceptionCampoVazio("Campo vazio preencha todos os campos!");
             }
             // Validar email
-            Usuario.validarEmail(email);
+            Usuario.validarEmail(email.trim());
 
             // Validar se o usuario já esta no banco de usuario.
-            Usuario.validarEmailJaCadastrado(email);
+            Usuario.validarEmailJaCadastrado(email.trim());
 
             //Validando os campos email e confirmar email
 
-            if(!Usuario.confirmaEmailRegistro(email,confEmail)){
+            if(!Usuario.confirmaEmailRegistro(email.trim(),confEmail.trim())){
                 throw new ExceptionEmailInvalido("Verifique se os email são iguais!");
             }
             //Criando usuario
             BancoDeUsuarios b = BancoDeUsuarios.getInstancia();
-            b.cadastrarNoBanco(Usuario.cadastraUsuario(nome,email,senha,tipo));
+            b.cadastrarNoBanco(Usuario.cadastraUsuario(nome.trim(),email.trim(),senha.trim(),tipo.trim()));
 
             System.out.println(b.getBancoDeUsuarios());
 
@@ -85,17 +85,11 @@ public class ControllerRegistro {
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } catch (ExceptionCampoVazio e){
-            labelTestResg.setText(e.getMessage());
-            labelTestResg.setVisible(true);
-        } catch (ExceptionEmailInvalido e){
+        } catch (ExceptionCampoVazio | ExceptionEmailJaCadastrado | ExceptionEmailInvalido e){
             labelTestResg.setText(e.getMessage());
             labelTestResg.setVisible(true);
         } catch (NullPointerException e){
             labelTestResg.setText("Cadastro não realizado!!");
-            labelTestResg.setVisible(true);
-        } catch (ExceptionEmailJaCadastrado e){
-            labelTestResg.setText(e.getMessage());
             labelTestResg.setVisible(true);
         }
 

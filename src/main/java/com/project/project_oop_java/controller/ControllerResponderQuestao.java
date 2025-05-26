@@ -36,10 +36,11 @@ public class ControllerResponderQuestao implements Initializable {
     private RadioButton radioE;
     @FXML
     private Label lbResposta;
+    @FXML
+    private ToggleGroup grupoAlternativas;
 
     private Questao questao;
 
-    private ToggleGroup grupoAlternativas;
 
 
     public void initialize(URL url, ResourceBundle rb) {
