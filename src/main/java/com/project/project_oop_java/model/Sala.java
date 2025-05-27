@@ -5,24 +5,25 @@ import com.project.project_oop_java.exceptions.ExceptionCampoVazio;
 import com.project.project_oop_java.exceptions.ExceptionLinkInvalido;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Sala {
 
+    private String idDoCriador;
     private String nomeDaSala;
     private String donoDaSala;
     private int codigoDaSala;
     private ArrayList<String> materialApoio;
-    private ArrayList<Questao> questoes;
     private ArrayList<Usuario> participantes;
 
-    public Sala(String nomeDaSala, String donoDaSala, int codigoDaSala) {
+    public Sala(String idDoCriador,String nomeDaSala, String donoDaSala, int codigoDaSala) {
+        this.idDoCriador = idDoCriador;
         this.nomeDaSala = nomeDaSala;
         this.donoDaSala = donoDaSala;
         this.codigoDaSala = codigoDaSala;
         this.materialApoio = new ArrayList<>();
-        this.questoes = new ArrayList<>();
         this.participantes = new ArrayList<>();
     }
 
@@ -36,6 +37,7 @@ public class Sala {
             throw new ExceptionLinkInvalido("Só são permitido links da plataforma do Youtube. Apague os campos e tente novamente!");
         }
     }
+
 
     public String getNomeDaSala() {
         return nomeDaSala;
@@ -69,13 +71,7 @@ public class Sala {
         this.materialApoio.add(materialApoio);
     }
 
-    public ArrayList<Questao> getQuestoes() {
-        return questoes;
-    }
 
-    public void setQuestoes(Questao questao) {
-        this.questoes.add(questao);
-    }
 
     public ArrayList<Usuario> getParticipantes() {
         return participantes;
@@ -85,15 +81,21 @@ public class Sala {
         this.participantes.add(participante);
     }
 
+    public String getIdDoCriador() {
+        return idDoCriador;
+    }
+
+    public void setIdDoCriador(String idDoCriador) {
+        this.idDoCriador = idDoCriador;
+    }
+
     @Override
     public String toString() {
         return "Sala{" +
-                "nomeDaSala='" + nomeDaSala + '\'' +
-                ", donoDaSala='" + donoDaSala + '\'' +
+                "participantes=" + participantes +
                 ", codigoDaSala=" + codigoDaSala +
-                ", materialApoio=" + materialApoio +
-                ", questoes=" + questoes +
-                ", participantes=" + participantes +
+                ", donoDaSala='" + donoDaSala + '\'' +
+                ", nomeDaSala='" + nomeDaSala + '\'' +
                 '}';
     }
 }

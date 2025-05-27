@@ -1,5 +1,7 @@
 package com.project.project_oop_java.controller;
 
+import com.project.project_oop_java.exceptions.ExceptionCriadorInvalido;
+import com.project.project_oop_java.exceptions.ExceptionSalaInvalida;
 import com.project.project_oop_java.exceptions.ExceptionSenhaInvalida;
 import com.project.project_oop_java.model.*;
 import javafx.event.ActionEvent;
@@ -16,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,12 +29,20 @@ import java.util.ResourceBundle;
 public class ControllerHome implements Initializable {
 
     @FXML
-    private Label textTest;
+    private Label lbErro;
     @FXML
     private VBox painelQuestoes;
+    @FXML
+    private Button btnSala;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        BancoDeSalas bancoDeSalas = BancoDeSalas.getInstancia();
+
+        if(bancoDeSalas.totalDeSalas() > 0){
+            btnSala.setVisible(true);
+        }
+
         BancoDeQuestoes b = BancoDeQuestoes.getInstancia();
         System.out.println(b.getBancoDeQuestoes());
         for (Map.Entry<Integer, Questao> questao : b.getBancoDeQuestoes().entrySet()) {
@@ -48,6 +59,15 @@ public class ControllerHome implements Initializable {
                     questao.getValue().getIdDoCriador()
             ));
         }
+    }
+
+    @FXML
+    private void abrirSala(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/project/project_oop_java/view/sala-view.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -208,12 +228,65 @@ public class ControllerHome implements Initializable {
             }
         });
 
+        Button btnAdicionar = new Button("Adicionar a Sala");
+        btnAdicionar.setStyle("-fx-background-color: #fcb502");
+        btnAdicionar.setTextFill(Color.WHITE);
+        btnAdicionar.setLayoutX(250);
+        btnAdicionar.setLayoutY(7);
+        btnAdicionar.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/project/project_oop_java/view/popUpValidarSala-view.fxml"));
+                Parent root = loader.load();
+
+                ControllerPopUp controller = loader.getController();
+
+                Stage stage = new Stage();
+                controller.setStage(stage);
+
+                BancoDeSalas bancoSala = BancoDeSalas.getInstancia();
+                BancoDeQuestoes bancoQuestoes = BancoDeQuestoes.getInstancia();
+                BancoDeQuestoesSala bancoDeQuestoesSala = BancoDeQuestoesSala.getInstancia();
+
+                controller.setIdConfirmado(idDaSala -> {
+                    try {
+                        if (bancoSala.validarSala(idDaSala)) {
+                            if (String.valueOf(Sessao.getIdDoUsuario()).equals(bancoSala.buscarSala(idDaSala).getIdDoCriador())) {
+                                Questao questao = bancoQuestoes.getQuestao(Integer.parseInt(id));
+
+                                // mover para o banco de sala
+                                bancoDeQuestoesSala.cadastrarQuestoesSala(questao);
+
+                                System.out.println("Questão movida com sucesso!");
+                            }else {
+                                throw new ExceptionCriadorInvalido("Usuario não é o dono da sala!.");
+                            }
+                        } else {
+                            throw new ExceptionSalaInvalida("Codigo da sala invalido ou não cadastrado!");
+                        }
+                    } catch (NumberFormatException | ExceptionSalaInvalida | ExceptionCriadorInvalido e) {
+                        lbErro.setVisible(true);
+                        lbErro.setText(e.getMessage());
+                    }
+                });
+
+                stage.setScene(new Scene(root));
+                stage.setTitle("Mover Questão");
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.showAndWait();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ExceptionSalaInvalida | ExceptionCriadorInvalido e) {
+                lbErro.setText(e.getMessage());
+                lbErro.setVisible(true);
+            }
+        });
 
 
         if(idDoUsuario.equals(String.valueOf(Sessao.getIdDoUsuario()))){
-            botoesPane.getChildren().addAll(btnResponder, btnRemover, btnEditar);
+            botoesPane.getChildren().addAll(btnResponder, btnRemover, btnEditar,btnAdicionar);
         }else{
-            botoesPane.getChildren().add(btnResponder);
+            botoesPane.getChildren().addAll(btnResponder, btnAdicionar);
         }
 
 

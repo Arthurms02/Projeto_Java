@@ -34,4 +34,8 @@ public class BancoDeQuestoes {
     public HashMap<Integer, Questao> getBancoDeQuestoes() {
         return bancoDeQuestoes;
     }
+
+    public Questao getQuestao(int id){
+        return bancoDeQuestoes.get(id);
+    }
 }

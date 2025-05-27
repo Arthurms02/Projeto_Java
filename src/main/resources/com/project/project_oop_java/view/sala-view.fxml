@@ -74,8 +74,9 @@
                <children>
                   <ScrollPane layoutX="30.0" layoutY="134.0" prefHeight="576.0" prefWidth="1085.0">
                      <content>
-                        <VBox prefHeight="610.0" prefWidth="1083.0" />
+                        <VBox fx:id="painelQuestoesSala" prefHeight="610.0" prefWidth="1083.0" />
                      </content></ScrollPane>
+                  <Button layoutX="90.0" layoutY="74.0" mnemonicParsing="false" onAction="#adicionarQuestoes" prefHeight="30.0" prefWidth="202.0" style="-fx-background-radius: 20px; -fx-padding: 10px;" text="Adicionar Questao" />
                </children>
             </AnchorPane>
          </children>

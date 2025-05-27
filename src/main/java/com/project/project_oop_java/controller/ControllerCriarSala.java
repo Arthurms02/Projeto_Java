@@ -87,7 +87,7 @@ public class ControllerCriarSala {
                 throw new ExceptionCampoVazio("Campo de dono da sala não pode ser vazio!");
             }
             // abri a sala
-            Sala sala = new Sala(nomeSala,nomeDono,codigo);
+            Sala sala = new Sala(String.valueOf(Sessao.getIdDoUsuario()),nomeSala,nomeDono,codigo);
 
             // Validar LINKS e adicionar na sala
 
@@ -100,10 +100,15 @@ public class ControllerCriarSala {
                 }
 
             }
-            // adicionando no banco
+            // Adicionando no banco
             BancoDeSalas banco = BancoDeSalas.getInstancia();
             banco.cadastraSala(codigo, sala);
             System.out.println(banco.getBancoDeSala());
+
+            Parent root = FXMLLoader.load(getClass().getResource("/com/project/project_oop_java/view/sala-view.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
 
 
         } catch (ExceptionCampoVazio | ExceptionLinkInvalido e) {
@@ -112,6 +117,8 @@ public class ControllerCriarSala {
         } catch (NumberFormatException ex){
             lbErros.setText("Só são permitido numeros no codigo da sala!");
             lbErros.setVisible(true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

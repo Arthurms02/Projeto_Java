@@ -12,13 +12,21 @@ public class BancoDeSalas {
 
     public static BancoDeSalas getInstancia(){
         if(instancia == null){
-            return new BancoDeSalas();
+            return instancia = new BancoDeSalas();
         }
         return instancia;
     }
 
     public void cadastraSala(int codigo, Sala sala){
         bancoDeSalas.put(codigo,sala);
+    }
+
+    public boolean validarSala(int codigo){
+        return bancoDeSalas.containsKey(codigo);
+    }
+
+    public int totalDeSalas(){
+        return bancoDeSalas.size();
     }
 
     public Sala buscarSala(int codigo){
