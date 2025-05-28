@@ -1,11 +1,9 @@
 package com.project.project_oop_java.model;
 
 
-import com.project.project_oop_java.exceptions.ExceptionCampoVazio;
 import com.project.project_oop_java.exceptions.ExceptionLinkInvalido;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

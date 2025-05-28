@@ -104,6 +104,7 @@ public class ControllerCriarSala {
             BancoDeSalas banco = BancoDeSalas.getInstancia();
             banco.cadastraSala(codigo, sala);
             System.out.println(banco.getBancoDeSala());
+            ControllerSala.setCodigoSala(codigo);
 
             Parent root = FXMLLoader.load(getClass().getResource("/com/project/project_oop_java/view/sala-view.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

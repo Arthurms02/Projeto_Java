@@ -1,8 +1,6 @@
 package com.project.project_oop_java.controller;
 
-import com.project.project_oop_java.model.BancoDeQuestoes;
-import com.project.project_oop_java.model.BancoDeQuestoesSala;
-import com.project.project_oop_java.model.Questao;
+import com.project.project_oop_java.model.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -26,8 +24,14 @@ import java.util.ResourceBundle;
 
 public class ControllerSala implements Initializable {
 
+    private static int codigoSala;
+
     @FXML
     private VBox painelQuestoesSala;
+    @FXML
+    private Label nomeSala;
+    @FXML
+    private Label nomeCriador;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -47,6 +51,11 @@ public class ControllerSala implements Initializable {
                     questao.getValue().getIdDoCriador()
             ));
         }
+
+        BancoDeSalas bancoDeSalas = BancoDeSalas.getInstancia();
+        nomeSala.setText(bancoDeSalas.buscarSala(codigoSala).getNomeDaSala());
+        nomeCriador.setText(bancoDeSalas.buscarSala(codigoSala).getDonoDaSala());
+
     }
     @FXML
     public void adicionarQuestoes(ActionEvent event) throws IOException {
@@ -54,6 +63,11 @@ public class ControllerSala implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+
+    public static void setCodigoSala(int codigoSala) {
+        ControllerSala.codigoSala = codigoSala;
     }
 
     @FXML
