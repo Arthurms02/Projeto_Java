@@ -1,14 +1,22 @@
 package com.project.project_oop_java.controller;
 
+import com.project.project_oop_java.model.Aluno;
+import com.project.project_oop_java.model.BancoDeUsuarios;
 import com.project.project_oop_java.model.Questao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -79,6 +87,10 @@ public class ControllerResponderQuestao implements Initializable {
                 lbResposta.setText("Resposta Correta!");
                 lbResposta.setVisible(true);
                 lbResposta.setTextFill(Color.GREEN);
+                BancoDeUsuarios bancoDeUsuarios = BancoDeUsuarios.getInstancia();
+                Aluno aluno = (Aluno) bancoDeUsuarios.getBancoDeUsuarios().get(Sessao.getIdDoUsuario());
+                int pontos = aluno.getPontuacao();
+                aluno.setPontuacao(pontos + Integer.parseInt(questao.getTotalDePontos()));
             }else {
                 lbResposta.setText("Resposta Incorreta! ");
                 lbResposta.setVisible(true);
@@ -92,8 +104,10 @@ public class ControllerResponderQuestao implements Initializable {
     }
 
     @FXML
-    public void btnHome(){
-
-
+    public void btnHome(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/com/project/project_oop_java/view/home-view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

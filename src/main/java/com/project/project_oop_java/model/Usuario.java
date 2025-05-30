@@ -26,7 +26,7 @@ public abstract class Usuario {
     public static Usuario cadastraUsuario(String nome, String email, String senha, String tipo ){
         switch (tipo){
             case "Professor":
-                Professor p = new Professor(nome,email,senha,TipoDeUsuario.PROFESSOR);
+                Professor p = new Professor(nome,email,senha,TipoDeUsuario.PROFESSOR,"Infos Professor");
                 System.out.println("Professor foi cadastrado");
                 return p;
             case "Aluno":
@@ -88,6 +88,10 @@ public abstract class Usuario {
         // Se sai do loop sem encontrar o email
         throw new ExceptionEmailInvalido("Email incorreto ou nao cadastrado!");
 
+    }
+
+    public TipoDeUsuario getTipoUsuario() {
+        return tipoUsuario;
     }
 
     public String getNome() {

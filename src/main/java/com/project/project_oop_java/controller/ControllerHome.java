@@ -74,17 +74,6 @@ public class ControllerHome implements Initializable {
     private void btnPerfil(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/project/project_oop_java/view/perfil-view.fxml"));
         Parent root = loader.load();
-
-        // Recupera o controller da próxima view
-        ControllerPerfil perfilController = loader.getController();
-
-        // Passa o nome do usuário
-        BancoDeUsuarios b = BancoDeUsuarios.getInstancia();
-        Usuario u = b.getBancoDeUsuarios().get(Sessao.getIdDoUsuario());
-
-        perfilController.setNomePerfil(u.getNome());
-        perfilController.setEmailPerfil(u.getEmail());
-
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
