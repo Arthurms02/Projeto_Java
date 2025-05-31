@@ -6,47 +6,80 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.project_oop_java.controller.ControllerPerfil">
    <children>
       <VBox prefHeight="1024.0" prefWidth="1448.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#voltarPagina" prefHeight="58.0" prefWidth="91.0" text="Voltar" />
-            <AnchorPane prefHeight="231.0" prefWidth="1440.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-style: solid;">
+            <AnchorPane prefHeight="307.0" prefWidth="1440.0" style="-fx-background-color: #F79B72; -fx-background-radius: 0 0 10 10;">
                <children>
-                  <ImageView fitHeight="100.0" fitWidth="77.0" layoutX="58.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Imagens/imagens_projeto/book_3145765.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="nomePerfil" layoutX="173.0" layoutY="71.0" text="Label">
+                  <AnchorPane layoutX="98.0" layoutY="60.0" prefHeight="200.0" prefWidth="514.0" style="-fx-background-color: #2A4759; -fx-padding: 10px; -fx-background-radius: 5px; -fx-border-radius: 20px;">
+                     <children>
+                        <Label fx:id="lbPontos" layoutX="308.0" layoutY="122.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Inter Regular" size="15.0" />
+                           </font>
+                        </Label>
+                        <Text fill="WHITE" layoutX="191.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Pontos:" wrappingWidth="116.7001953125">
+                           <font>
+                              <Font name="Inter Regular" size="15.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="emailPerfil" layoutX="203.0" layoutY="87.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Inter Regular" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nomePerfil" layoutX="192.0" layoutY="42.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Inter Regular" size="30.0" />
+                           </font>
+                        </Label>
+                        <Line endX="82.0" layoutX="284.0" layoutY="80.0" startX="-93.0" stroke="WHITE" />
+                        <Pane layoutX="50.0" layoutY="52.0" prefHeight="90.0" prefWidth="99.0" style="-fx-background-radius: 20px; -fx-border-style: solid; -fx-background-size: 10px; -fx-border-color: ffffffff; -fx-border-radius: 10px;">
+                           <children>
+                              <ImageView fitHeight="93.0" fitWidth="77.0" layoutX="11.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Imagens/imagens_projeto/book_3145765.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="10.0" layoutY="5.0" mnemonicParsing="false" onAction="#voltarPagina" prefHeight="36.0" prefWidth="47.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 5px;" textFill="WHITE">
                      <font>
-                        <Font name="Inter Regular" size="30.0" />
+                        <Font name="Inter Regular" size="18.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="emailPerfil" layoutX="173.0" layoutY="107.0" text="Label">
-                     <font>
-                        <Font name="Inter Regular" size="15.0" />
-                     </font>
-                  </Label>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Imagens/imagens_projeto/back_17212726.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
-            <HBox prefHeight="789.0" prefWidth="1440.0">
+            <HBox prefHeight="789.0" prefWidth="1440.0" style="-fx-padding: 5px 10px;">
                <children>
-                  <AnchorPane prefHeight="771.0" prefWidth="598.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-style: solid;">
+                  <AnchorPane prefHeight="771.0" prefWidth="598.0" style="-fx-border-radius: 20px; -fx-background-radius: 5; -fx-background-color: #F79B72;">
                      <children>
                         <Label fx:id="lbInfos" layoutX="54.0" layoutY="58.0" text="Label" visible="false">
                            <font>
                               <Font name="Inter Regular" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lbPontos" layoutX="54.0" layoutY="101.0" text="Label" visible="false">
+                        <Text layoutX="54.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bio">
                            <font>
-                              <Font name="Inter Regular" size="18.0" />
+                              <Font name="Inter Regular" size="20.0" />
                            </font>
-                        </Label>
+                        </Text>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="771.0" prefWidth="905.0" />

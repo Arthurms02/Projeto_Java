@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.project_oop_java.controller.ControllerHome">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.project_oop_java.controller.ControllerHome">
    <children>
       <VBox alignment="CENTER" prefHeight="1024.0" prefWidth="347.0">
          <children>
@@ -38,7 +38,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Button alignment="CENTER" layoutX="3.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnPerfil" prefHeight="57.0" prefWidth="338.0" style="-fx-background-color: #F79B72; -fx-background-radius: 10px; -fx-font-size: 20px;" text="Perfil">
+                  <Button alignment="CENTER" layoutX="3.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnPerfil" prefHeight="54.0" prefWidth="338.0" style="-fx-background-color: #F79B72; -fx-background-radius: 20px; -fx-font-size: 20px;" text="Perfil">
                      <font>
                         <Font name="Inter Regular" size="35.0" />
                      </font>
@@ -48,12 +48,12 @@
                         <Image url="@../../../../Imagens/imagens_projeto/person_13924070.png" />
                      </image>
                   </ImageView>
-                  <Button alignment="CENTER" layoutX="1.0" layoutY="294.0" mnemonicParsing="false" onAction="#criarQuestao" prefHeight="57.0" prefWidth="338.0" style="-fx-background-color: #F79B72; -fx-background-radius: 10px; -fx-font-size: 20px;" text="Criar Questão">
+                  <Button alignment="CENTER" layoutX="1.0" layoutY="294.0" mnemonicParsing="false" onAction="#criarQuestao" prefHeight="54.0" prefWidth="338.0" style="-fx-background-color: #F79B72; -fx-background-radius: 20px; -fx-font-size: 20px;" text="Criar Questão">
                      <font>
                         <Font name="Inter Regular" size="20.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" layoutX="1.0" layoutY="365.0" mnemonicParsing="false" onAction="#btnSala" prefHeight="57.0" prefWidth="338.0" style="-fx-background-color: #F79B72; -fx-background-radius: 10px; -fx-font-size: 20px;" text="Criar Sala">
+                  <Button alignment="CENTER" layoutX="1.0" layoutY="365.0" mnemonicParsing="false" onAction="#btnSala" prefHeight="54.0" prefWidth="338.0" style="-fx-background-color: #F79B72; -fx-background-radius: 20px; -fx-font-size: 20px;" text="Criar Sala">
                      <font>
                         <Font name="Inter Regular" size="20.0" />
                      </font>
@@ -76,8 +76,14 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </ImageView>
-                  <Button layoutX="132.0" layoutY="487.0" mnemonicParsing="false" onAction="#voltarLogin" text="Voltar" />
-                  <Button fx:id="btnSala" layoutX="130.0" layoutY="549.0" mnemonicParsing="false" onAction="#abrirSala" text="Sala" visible="false" />
+                  <Button layoutX="121.0" layoutY="681.0" mnemonicParsing="false" onAction="#voltarLogin" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #F79B72; -fx-background-radius: 20px;" text="Sair">
+                     <font>
+                        <Font name="Inter Regular" size="18.0" />
+                     </font></Button>
+                  <Button fx:id="btnSala" layoutX="8.0" layoutY="549.0" mnemonicParsing="false" onAction="#abrirSala" prefHeight="44.0" prefWidth="332.0" style="-fx-background-color: #F79B72; -fx-background-radius: 20px; -fx-font-size: 20px;" text="Sala 1" visible="false">
+                     <font>
+                        <Font name="Inter Regular" size="18.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
          </children>

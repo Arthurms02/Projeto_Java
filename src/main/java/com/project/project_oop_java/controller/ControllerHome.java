@@ -18,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -110,20 +111,25 @@ public class ControllerHome implements Initializable {
 
         VBox cardVBox = new VBox();
         cardVBox.setPrefSize(912, 250);
+        cardVBox.setMaxSize(912,250);
         cardVBox.setStyle("-fx-background-color: #DDDDDD; -fx-padding: 20px; -fx-border-radius: 10px; -fx-border-style: solid; -fx-background-radius: 10px;");
         cardVBox.setId(idDoUsuario);
 
         // Topo - Enunciado, Criador, TotalPontos
         AnchorPane headerPane = new AnchorPane();
-        headerPane.setPrefSize(907, 94);
+        headerPane.setPrefSize(900, 90);
+        headerPane.setMaxSize(907,94);
 
         Label lblEnunciado = new Label(enunciado);
-        lblEnunciado.setLayoutX(48);
-        lblEnunciado.setLayoutY(17);
+        lblEnunciado.setLayoutX(25);
+        lblEnunciado.setMaxWidth(800);
+        lblEnunciado.setWrapText(true);
+        lblEnunciado.setLayoutY(30);
+        lblEnunciado.setTextAlignment(TextAlignment.JUSTIFY);
 
         Label lblCriador = new Label(fonte); // Fonte de onde veio a questão
-        lblCriador.setLayoutX(10);
-        lblCriador.setLayoutY(50);
+        lblCriador.setLayoutX(30);
+        lblCriador.setLayoutY(5);
 
         Label lblTotalPontos = new Label(totalPontos);
         lblTotalPontos.setLayoutX(806);
