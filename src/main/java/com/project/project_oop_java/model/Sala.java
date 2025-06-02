@@ -90,10 +90,27 @@ public class Sala {
     @Override
     public String toString() {
         return "Sala{" +
-                "participantes=" + participantes +
-                ", codigoDaSala=" + codigoDaSala +
-                ", donoDaSala='" + donoDaSala + '\'' +
+                "idDoCriador='" + idDoCriador + '\'' +
                 ", nomeDaSala='" + nomeDaSala + '\'' +
+                ", donoDaSala='" + donoDaSala + '\'' +
+                ", codigoDaSala=" + codigoDaSala +
+                ", materialApoio=" + materialApoio +
+                ", participantes=" + participantes +
                 '}';
+    }
+
+    public String formatarString(){
+        Professor p = new Professor("Arthut","test@tes.com","123",TipoDeUsuario.PROFESSOR, "TESTE");
+        setParticipantes(p);
+
+        String arrayMateriais = String.join(";",materialApoio);
+        ArrayList<String> formatUser = new ArrayList<>();
+        for(Usuario u: participantes){
+            formatUser.add(u.formatarString()+":");
+        }
+        formatUser.trimToSize();
+        String arrayParticipantes = String.join(";",formatUser);
+
+        return idDoCriador +";"+ nomeDaSala + ";" + donoDaSala + ";" + arrayMateriais + "/" + arrayParticipantes;
     }
 }

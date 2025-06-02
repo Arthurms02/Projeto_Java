@@ -1,5 +1,7 @@
 package com.project.project_oop_java.model;
 
+import com.project.project_oop_java.controller.EscritaArquivos;
+
 import java.util.HashMap;
 
 public class BancoDeQuestoes {
@@ -21,6 +23,7 @@ public class BancoDeQuestoes {
     public void cadastrarQuestoes(Questao questao){
         id++;
         bancoDeQuestoes.put(id,questao);
+        EscritaArquivos.salvarHashMapDeQuestoes(bancoDeQuestoes,"C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\Questoes.txt");
     }
 
     public  void editarQuestao(String id,Questao novaQuestao){

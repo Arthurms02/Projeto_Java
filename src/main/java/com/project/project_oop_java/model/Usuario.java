@@ -110,4 +110,8 @@ public abstract class Usuario {
     public String toString() {
         return "Usuario{" + "nome = "+ nome + " email = " + email + " senha = " + senha + '}';
     }
+
+    public String formatarString(){
+        return tipoUsuario + ";" + nome + ";" + email + ";" + senha;
+    }
 }
