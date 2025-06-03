@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class LeituraArquivos {
-    public static void lerArquivoComoHashMap(String caminho) {
+    public static void lerArquivoSala(String caminho) {
 
 
         try (BufferedReader br = new BufferedReader(new FileReader(caminho))) {

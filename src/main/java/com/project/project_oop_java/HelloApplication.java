@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        LeituraArquivos.lerArquivoComoHashMap("C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\Sala.txt");
+        LeituraArquivos.lerArquivoSala("C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\Sala.txt");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 550);
         stage.setTitle("Home Task");
