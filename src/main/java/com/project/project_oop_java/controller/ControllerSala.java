@@ -51,10 +51,13 @@ public class ControllerSala implements Initializable {
                     questao.getValue().getIdDoCriador()
             ));
         }
-
         BancoDeSalas bancoDeSalas = BancoDeSalas.getInstancia();
-        nomeSala.setText(bancoDeSalas.buscarSala(codigoSala).getNomeDaSala());
-        nomeCriador.setText(bancoDeSalas.buscarSala(codigoSala).getDonoDaSala());
+        for (Object s : bancoDeSalas.getBancoDeSala().values()){
+            Sala sala = (Sala) s;
+            nomeSala.setText(sala.getNomeDaSala());
+            nomeCriador.setText(sala.getDonoDaSala());
+        }
+
 
     }
     @FXML
@@ -146,8 +149,8 @@ public class ControllerSala implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 painelQuestoesSala.getChildren().remove(cardVBox);
-                BancoDeQuestoes b = BancoDeQuestoes.getInstancia();
-                b.removerQuestao(id);
+                BancoDeQuestoesSala b = BancoDeQuestoesSala.getInstancia();
+                b.removerQuestaoSala(id);
                 System.out.println("Removido card com id: " + id);
             }
         });
@@ -166,8 +169,8 @@ public class ControllerSala implements Initializable {
                 ControllerEditarQuestao controller = loader.getController();
 
                 // Pegando a questão do banco pelo id
-                BancoDeQuestoes banco = BancoDeQuestoes.getInstancia();
-                Questao questao = banco.getBancoDeQuestoes().get(Integer.parseInt(id));
+                BancoDeQuestoesSala banco = BancoDeQuestoesSala.getInstancia();
+                Questao questao = banco.getBancoDeQuestoesSala().get(Integer.parseInt(id));
 
                 // Envia a questão para preencher os campos
                 controller.setQuestaoEditada(id,questao);

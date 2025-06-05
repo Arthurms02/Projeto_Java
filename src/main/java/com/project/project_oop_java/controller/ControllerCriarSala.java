@@ -1,5 +1,6 @@
 package com.project.project_oop_java.controller;
 
+import com.project.project_oop_java.exceptions.ExceptionBancoSalaCheio;
 import com.project.project_oop_java.exceptions.ExceptionCampoVazio;
 import com.project.project_oop_java.exceptions.ExceptionLinkInvalido;
 import com.project.project_oop_java.model.BancoDeSalas;
@@ -12,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -70,6 +70,11 @@ public class ControllerCriarSala {
     @FXML
     public void criarSala(ActionEvent event){
         try {
+            BancoDeSalas bancoDeSalas = BancoDeSalas.getInstancia();
+            if(bancoDeSalas.totalDeSalas() > 0){
+                throw new ExceptionBancoSalaCheio("Banco de Sala cheio");
+            }
+
             String nomeSala = campoNomeSala.getText();
             String nomeDono = campoCriadorSala.getText();
             int codigo = Integer.parseInt(campoCodigoSala.getText());
@@ -112,7 +117,7 @@ public class ControllerCriarSala {
             stage.show();
 
 
-        } catch (ExceptionCampoVazio | ExceptionLinkInvalido e) {
+        } catch ( ExceptionBancoSalaCheio |ExceptionCampoVazio | ExceptionLinkInvalido e) {
             lbErros.setText(e.getMessage());
             lbErros.setVisible(true);
         } catch (NumberFormatException ex){

@@ -1,4 +1,2 @@
-1234;1;tets;test;/PROFESSOR;Arthut;test@tes.com;123:
-1234;1;tets;test;/PROFESSOR;Arthut;test@tes.com;123:;PROFESSOR;Arthut;test@tes.com;123:
-1234;1;tets;test;/PROFESSOR;Arthut;test@tes.com;123:;PROFESSOR;Arthut;test@tes.com;123:
-1234;1;tets;test;/PROFESSOR;Arthut;test@tes.com;123:;PROFESSOR;Arthut;test@tes.com;123:;PROFESSOR;Arthut;test@tes.com;123:
+
+123;1;test;test@test;/

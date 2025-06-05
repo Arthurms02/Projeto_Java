@@ -23,7 +23,10 @@ public class BancoDeQuestoes {
     public void cadastrarQuestoes(Questao questao){
         id++;
         bancoDeQuestoes.put(id,questao);
-        EscritaArquivos.salvarHashMapDeQuestoes(bancoDeQuestoes,"C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\Questoes.txt");
+    }
+
+    public void escreverQuestao(int id , Questao questao){
+        bancoDeQuestoes.put(id,questao);
     }
 
     public  void editarQuestao(String id,Questao novaQuestao){

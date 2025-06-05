@@ -1,6 +1,5 @@
 package com.project.project_oop_java.model;
 
-import com.project.project_oop_java.controller.EscritaArquivos;
 
 import java.util.HashMap;
 

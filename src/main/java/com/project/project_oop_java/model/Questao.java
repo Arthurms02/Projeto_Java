@@ -114,4 +114,8 @@ public class Questao {
                 ", alternativaE='" + alternativaE + '\'' +
                 '}';
     }
+
+    public String formatarString(){
+        return idDoCriador+ ";" +fonte +";"+ enunciado +";"+ totalDePontos +";"+ alternativaA + ";" + alternativaB + ";" + alternativaC +";" + alternativaD +";" + alternativaE + ";" + respostaCorreta;
+    }
 }
