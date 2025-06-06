@@ -1,1 +1,2 @@
-1;ALUNO;arthur;arthur@gamil.com;1234
+1;ALUNO;arthur;Arthur@gmail.com;1234
+2;PROFESSOR;test;test@test.com;123

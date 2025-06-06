@@ -32,10 +32,7 @@ public class EscritaArquivos {
                         String linha = entrada.getKey() + ";" + entrada.getValue().formatarString();
                         writer.write(linha + "\n");
                     }
-                    if (!LeituraArquivos.getIdQuestaoCadastradoSala().contains(entrada.getKey())){
-                        String linha = entrada.getKey() + ";" + entrada.getValue().formatarString();
-                        writer.write(linha + "\n");
-                    }
+
                 }
             } catch (IOException e) {
                 System.out.println("Erro ao salvar salas: " + e.getMessage());
@@ -45,7 +42,20 @@ public class EscritaArquivos {
     public static void salvarHashMapDeUsuarios(HashMap<Integer, Usuario> usuario, String caminhoArquivo) {
         try (FileWriter writer = new FileWriter(caminhoArquivo,true)) {
             for (Map.Entry<Integer, Usuario> entrada : usuario.entrySet()) {
-                if (!usuario.containsKey(entrada.getKey())) {
+                if (!LeituraArquivos.getIdDoUsuario().contains(entrada.getKey())) {
+                    String linha = entrada.getKey() + ";" + entrada.getValue().formatarString();
+                    writer.write(linha + "\n");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar salas: " + e.getMessage());
+        }
+    }
+
+    public static void salvarHashMapDeQuestoesSala(HashMap<Integer, Questao> questao, String caminhoArquivo){
+        try (FileWriter writer = new FileWriter(caminhoArquivo,true)) {
+            for (Map.Entry<Integer, Questao> entrada : questao.entrySet()) {
+                if (!LeituraArquivos.getIdQuestaoCadastradoSala().contains(entrada.getKey())){
                     String linha = entrada.getKey() + ";" + entrada.getValue().formatarString();
                     writer.write(linha + "\n");
                 }

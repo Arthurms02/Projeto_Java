@@ -12,6 +12,8 @@ public class LeituraArquivos {
     private static HashSet<Integer> idCadastrado = new HashSet<>();
     private static HashSet<Integer> idQuestaoCadastradoSala = new HashSet<>();
     private static HashSet<Integer> idDaSala = new HashSet<>();
+    private static HashSet<Integer> idDoUsuario = new HashSet<>();
+
 
     public static void lerArquivoSalas(String caminho) {
 
@@ -100,14 +102,17 @@ public class LeituraArquivos {
                         case "PROFESSOR":
                             Professor p = new Professor(nome, email,senha, TipoDeUsuario.PROFESSOR,"test");
                             bancoDeUsuarios.escreverNoBanco(id,p);
+                            idDoUsuario.add(id);
                             break;
                         case "ALUNO":
                             Aluno a = new Aluno(nome,email,senha,TipoDeUsuario.ALUNO);
                             bancoDeUsuarios.escreverNoBanco(id,a);
+                            idDoUsuario.add(id);
                             break;
                         case"OUTROS":
                             Outros o = new Outros(nome,email,senha,TipoDeUsuario.OUTROS);
                             bancoDeUsuarios.escreverNoBanco(id,o);
+                            idDoUsuario.add(id);
                             break;
                     }
                 }
@@ -145,6 +150,33 @@ public class LeituraArquivos {
         }
     }
 
+    public static void lerArquivoQuestoesSala(String caminho){
+        try(BufferedReader br = new BufferedReader(new FileReader(caminho))){
+            String linha;
+            BancoDeQuestoesSala bancoDeQuestoesSala = BancoDeQuestoesSala.getInstancia();
+            while ((linha = br.readLine()) != null){
+                String[] partes = linha.split(";", 11);
+                if(partes.length >= 10){
+                    int id = Integer.parseInt(partes[0]);
+                    String idDoCriador = partes[1];
+                    String fonte = partes[2];
+                    String enunciado = partes[3];
+                    String totalPontos = partes[4];
+                    String altA = partes[5];
+                    String altB = partes[6];
+                    String altC = partes[7];
+                    String altD = partes[8];
+                    String altE = partes[9];
+                    String respCorreta = partes[10];
+                    Questao questao = new Questao(idDoCriador,fonte,enunciado,totalPontos,altA,altB,altC,altD,altE,respCorreta);
+                    idQuestaoCadastradoSala.add(id);
+                    bancoDeQuestoesSala.escreverQuestao(id,questao);
+                }
+            }
+        }catch (IOException e){
+            System.out.println("Erro na leitura do arquivo :" + e.getMessage());
+        }
+    }
 
     public static void setIdCadastrado(HashSet<Integer> idCadastrado) {
         LeituraArquivos.idCadastrado = idCadastrado;
@@ -169,4 +201,13 @@ public class LeituraArquivos {
     public static void setIdDaSala(HashSet<Integer> idDaSala) {
         LeituraArquivos.idDaSala = idDaSala;
     }
+
+    public static HashSet<Integer> getIdDoUsuario() {
+        return idDoUsuario;
+    }
+
+    public static void setIdDoUsuario(HashSet<Integer> idDoUsuario) {
+        LeituraArquivos.idDoUsuario = idDoUsuario;
+    }
+
 }

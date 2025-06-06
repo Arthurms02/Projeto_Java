@@ -1,6 +1,5 @@
 package com.project.project_oop_java.model;
 
-import com.project.project_oop_java.controller.EscritaArquivos;
 
 import java.util.HashMap;
 
@@ -25,8 +24,10 @@ public class BancoDeQuestoes {
         bancoDeQuestoes.put(id,questao);
     }
 
-    public void escreverQuestao(int id , Questao questao){
-        bancoDeQuestoes.put(id,questao);
+
+    public void escreverQuestao(int idQuestao , Questao questao){
+        id++;
+        bancoDeQuestoes.put(idQuestao,questao);
     }
 
     public  void editarQuestao(String id,Questao novaQuestao){

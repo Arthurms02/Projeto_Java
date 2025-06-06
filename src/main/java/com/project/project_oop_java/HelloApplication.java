@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         LeituraArquivos.lerArquivoSalas("C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\Sala.txt");
         LeituraArquivos.lerArquivoUsuarios("C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\Usuarios.txt");
         LeituraArquivos.lerArquivoQuestoes("C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\Questoes.txt");
-        LeituraArquivos.lerArquivoQuestoes("C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\QuestoesSala.txt");
+        LeituraArquivos.lerArquivoQuestoesSala("C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\QuestoesSala.txt");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 550);
         stage.setTitle("Home Task");
@@ -38,7 +38,7 @@ public class HelloApplication extends Application {
         BancoDeQuestoes bancoDeQuestoes = BancoDeQuestoes.getInstancia();
         EscritaArquivos.salvarHashMapDeQuestoes(bancoDeQuestoes.getBancoDeQuestoes(),"C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\Questoes.txt");
         BancoDeQuestoesSala bancoDeQuestoesSala = BancoDeQuestoesSala.getInstancia();
-        EscritaArquivos.salvarHashMapDeQuestoes(bancoDeQuestoesSala.getBancoDeQuestoesSala(),"C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\QuestoesSala.txt");
+        EscritaArquivos.salvarHashMapDeQuestoesSala(bancoDeQuestoesSala.getBancoDeQuestoesSala(),"C:\\Users\\arthur\\Desktop\\Projeto_java\\Projeto_Java\\src\\main\\java\\com\\project\\project_oop_java\\arquivos\\QuestoesSala.txt");
         super.stop();
     }
 

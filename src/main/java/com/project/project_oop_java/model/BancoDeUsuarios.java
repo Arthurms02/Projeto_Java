@@ -26,8 +26,10 @@ public class BancoDeUsuarios {
         bancoDeUsuarios.containsKey(id);
     }
 
-    public void escreverNoBanco(int id, Usuario usuario){
-        bancoDeUsuarios.put(id,usuario);
+
+    public void escreverNoBanco(int idUsuario, Usuario usuario){
+        id++;
+        bancoDeUsuarios.put(idUsuario,usuario);
     }
 
     public HashMap<Integer, Usuario> getBancoDeUsuarios() {

@@ -23,6 +23,11 @@ public class BancoDeQuestoesSala {
         bancoDeQuestoesSala.put(id,questao);
     }
 
+    public void escreverQuestao(int idQuestao , Questao questao){
+        id++;
+        bancoDeQuestoesSala.put(idQuestao,questao);
+    }
+
     public  void editarQuestaoSala(String id,Questao novaQuestao){
         bancoDeQuestoesSala.put(Integer.parseInt(id),novaQuestao);
     }
